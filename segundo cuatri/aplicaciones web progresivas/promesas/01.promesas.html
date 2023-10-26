@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Promesas en JS</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo row">Escuela Da Vinci</div>
+      </div>
+    </header>
+    <main class="container main">
+      <!--<nav>
+            <p>Tabla de navegación de la clase:</p>
+            <ul class="content-table">
+                <li><b>Repaso</b></li>
+            </ul>
+        </nav>-->
+      <h1>Promise API</h1>
+      <div class="text-block">
+        <p>
+          La programación asíncrona es muy importante en el ecosistema de JS.
+          Tradicionalmente contábamos solo con callbacks para resolverlo. Ahora
+          tenemos además la
+          <a
+            href="https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Promise"
+            target="_blank"
+            >API de Promise</a
+          >.
+        </p>
+      </div>
+
+      <div class="text-block">
+        <h2>¿Qué es una promesa?</h2>
+
+        <p>
+          Una promesa es algo que alguien le afirma a otro que va a hacer sin
+          falta, para luego probablemente no cumplirlo (Kappa).
+        </p>
+
+        <p>
+          En caso de JS, es un objeto que
+          <q
+            cite="https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Promise"
+            >representa un valor que puede estar disponible en este momento, en
+            el futuro, o nunca</q
+          >. En otras palabras,
+          <q
+            cite="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+            >representan la eventual finalización (o falla) de una operación
+            asíncrona, y su valor resultante</q
+          >.
+        </p>
+
+        <p>
+          Las promesas ofrecen una interfaz que nos <i>prometen</i> avisarnos, a
+          través de un callback "resolve", cuando un valor está disponible, o, a
+          través de un callback "reject", si por alguna razón falló la obtención
+          de dicho valor.
+        </p>
+
+        <p>Llevan la siguiente sintaxis:</p>
+
+        <div class="code-example">
+          <div class="code-example_type">
+            <span class="sr-only">Código de</span> JavaScript
+          </div>
+          <pre><code>new Promise(executor)</code></pre>
+        </div>
+
+        <p>
+          Donde <i>executor</i> es una función que tiene la siguiente
+          <i>firma</i>:
+        </p>
+
+        <div class="code-example">
+          <div class="code-example_type">
+            <span class="sr-only">Código de</span> JavaScript
+          </div>
+          <pre><code>function(resolve, reject){...}</code></pre>
+        </div>
+
+        <p>
+          Donde tanto <i>resolve</i> como <i>reject</i> son <i>callbacks</i> que
+          deben ejecutarse cuando la operación tenga éxito o falle,
+          respectivamente.
+        </p>
+
+        <p>
+          <i>executor</i> (función ejecutora) tiene como objetivo realizar la
+          acción asíncrona. En su interior, cuando la acción se complete
+          exitosamente, se debe ejecutar la función <i>resolve</i>,
+          opcionalmente pasándole argumentos. Mientras que si la acción falla,
+          se debe ejecutar la función <i>reject</i>, opcionalmente con
+          argumentos.
+        </p>
+      </div>
+      <div class="text-block">
+        <h3>Métodos</h3>
+
+        <dl class="def-list">
+          <dt><code>then(resolve[, reject])</code></dt>
+          <dd>
+            Se ejecuta cuando el valor de la promesa esté disponible, ya sea en
+            este instante o en el futuro. Recibe el callback que queremos que se
+            ejecute cuando la promesa se cumpla con éxito. Opcionalmente,
+            podemos pasar el callback para el caso de que haya un error. Siempre
+            retorna una <i>nueva <code>Promise</code></i
+            >.
+          </dd>
+          <dt><code>catch(reject)</code></dt>
+          <dd>
+            Se ejecuta cuando ocurrió un error. Lleva el callback para ejecutar
+            en ese caso (idéntico al 2do parámetro de <code>then</code>).
+          </dd>
+        </dl>
+      </div>
+
+      <div class="text-block">
+        <h2>Beneficios vs Callbacks</h2>
+
+        <p>
+          Lo primero que vale la pena mencionar, es que las promesas
+          <i>no</i> eliminan los callbacks. De hecho, usa hasta dos en su
+          constructor.
+        </p>
+
+        <p>
+          La idea es ampliar las funcionalidades y posibilidades, a través de
+          una API más elegante.
+        </p>
+
+        <p>Entre sus beneficios, podemos mencionar los siguientes.</p>
+
+        <h3>Adiós al Callback Hell</h3>
+
+        <p>
+          <a href="http://callbackhell.com/" target="_blank"
+            ><i>Callback Hell</i></a
+          >, o
+          <a
+            href="https://en.wikipedia.org/wiki/Pyramid_of_doom_(programming)"
+            target="_blank"
+            ><i>Pyramid of Doom</i></a
+          >
+          son términos muy usados, aunque este último no es específico de
+          callbacks.
+        </p>
+
+        <p>
+          Hacen referencia a cómo se ve el código cuando tenemos múltiples
+          callbacks anidados unos dentro de otros. Suelen tener una forma como
+          esta:
+        </p>
+
+        <div class="code-example">
+          <div class="code-example_type">
+            <span class="sr-only">Código de</span> JavaScript
+          </div>
+          <pre><code>asyncFunction(() => {
+    asyncFunction2(() => {
+        asyncFunction3(() => {
+            asyncFunction4(() => {
+                asyncFunction5(() => {
+                    asyncFunction6(() => {
+                        asyncFunction7(() => {
+                            asyncFunction8(() => {
+                                ... // ¿Ven la pirámide?
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+});</code></pre>
+        </div>
+
+        <p>
+          Por ejemplo, imaginemos un escenario donde queremos traer la data de
+          un usuario de la base de datos, luego en base a sus coordenadas buscar
+          la ubicación, mostrarla en un mapa, que una vez cargado, espere medio
+          segundo para darle un mensaje al usuario avisándole que la operación
+          terminó.
+        </p>
+
+        <div class="code-example">
+          <div class="code-example_type">
+            <span class="sr-only">Código de</span> JavaScript
+          </div>
+          <pre><code>window.addEventListener(function() {
+    document.getElementById('boton').addEventListener('click', function() {
+        // Simulamos una función que realice una petición de Ajax.
+        ajaxRequest({
+            url: 'https://ejemplo.com/api/usuario/1',
+            success: function(response) {
+                const data = JSON.parse(response);
+                mostrarResultados(data);
+                // Buscamos la ubicación del usuario en alguna API de un mapa (como Google Maps u Open Street Map) con la data que trajimos
+                const coords = data.coords;
+                ajaxRequest({
+                    url: `https://nominatim.openstreetmap.org/reverse?lat=${coords.lat}&lon=${coords.long}&format=json`,
+                    success: function(response) {
+                        const data = JSON.parse(response);
+                        // Cuando termine de mostrarse, llamamos a un mensaje
+                        showMap(data, function() {
+                            // Después de medio segundo de recibir la data, mostramos un mensaje de éxito.
+                            setTimeout(() => {
+                                // Simulamos una llamada a una función que realice una animación de una ventana que aparezca.
+                                showMessage({
+                                    type: 'success',
+                                    message: '¡La información se trajo con éxito! En el mapa vas a ver la ubicación del usuario.'
+                                });
+                            }, 500);
+                        });
+                    }
+                });
+            }
+        });
+    });
+});</code></pre>
+        </div>
+
+        <p>
+          El código escrito de esa forma puede ser una pesadilla de leer y
+          mantener. Las promesas nos ayudan a evitar eso. Por ejemplo,
+          <a href="#chaining"><i>encadenando promesas</i></a
+          >:
+        </p>
+
+        <div class="code-example">
+          <div class="code-example_type">
+            <span class="sr-only">Código de</span> JavaScript
+          </div>
+          <pre><code>window.addEventListener(function() {
+    document.getElementById('boton').addEventListener('click', function() {
+        // Simulamos una función que realice una petición de Ajax.
+        ajaxRequest({
+            url: 'https://ejemplo.com/api/usuario/1'
+        }).then(response => {
+            const data = JSON.parse(response);
+            mostrarResultados(data);
+            return response;
+        }).then(data => {
+            // Buscamos la ubicación del usuario en alguna API de un mapa (como Google Maps u Open Street Map) con la data que trajimos
+            const coords = data.coords;
+            return ajaxRequest({
+                url: `https://nominatim.openstreetmap.org/reverse?lat=${coords.lat}&lon=${coords.long}&format=json`
+            });
+        }).then(response => {
+            const data = JSON.parse(response);
+            // Cuando termine de mostrarse, llamamos a un mensaje
+            return showMap(data);
+        }).then(() => {
+            // Después de medio segundo de recibir la data, mostramos un mensaje de éxito.
+            setTimeout(() => {
+                // Simulamos una llamada a una función que realice una animación de una ventana que aparezca.
+                showMessage({
+                    type: 'success',
+                    message: '¡La información se trajo con éxito! En el mapa vas a ver la ubicación del usuario.'
+                });
+            }, 500);
+        });
+    });
+});</code></pre>
+        </div>
+
+        <!--<h3>Condiciones de carrera</h3>
+
+            <div class="quote-with-cite">
+                <blockquote>
+                    <p>Knock knock! Race condition. Who's there?</p>
+                </blockquote>
+                <cite>Codepen.io</cite>
+            </div>
+
+            <p>Una <i>race condition</i> (condición de carrera) se da cuando el orden de finalización de dos instrucciones <i>asíncronas</i> altera el correcto resultado de la ejecución de un programa.</p>
+
+            <div class="note note-trivia">
+                <p>Hay gente que dice que <a href="https://blog.raananweber.com/2015/06/17/no-there-are-no-race-conditions-in-javascript/" target="_blank">no hay race conditions in JavaScript</a>. Hay <a href="https://medium.com/@ubershmekel/yes-there-are-race-conditions-in-javascript-ba044571a914" target="_blank">otros</a>, entre los que me incluyo, que está en desacuerdo. Típicamente se adjudica esto a que JavaScript es <i>single-threaded</i> (como mencionamos en la intro a Ajax). Pero una race condition solo necesita de un orden de ejecución que pueda variar, no de threads, sino debería ser "Threaded Race Condition". ¯\_(ツ)_/¯</p>
+            </div>-->
+
+        <h3>Código que depende de múltiples acciones asíncronas</h3>
+
+        <p>
+          A veces sucede que para realizar alguna operación, necesitamos que
+          varios procedimientos terminen primero.
+        </p>
+
+        <p>
+          Por ejemplo, imaginemos que estamos trabajando en una SPA de viajes.
+          Una de las pantallas a las que podemos acceder requiere de tener
+          información de destinos y de vuelos.
+        </p>
+
+        <p>
+          En dicha pantalla, por un lado, necesitamos poner los destinos en un
+          <code>&lt;select&gt;</code> para el form de filtrado. Por otro lado,
+          tenemos que armar una listar los vuelos, incluyendo por supuesto, el
+          destino de cada uno.
+        </p>
+
+        <p>
+          En la <i>API</i> tenemos <i>endpoints</i> para obtener los vuelos y
+          los destinos. La data del <i>endpoint</i> de los vuelos podría verse
+          así:
+        </p>
+
+        <div class="code-example">
+          <div class="code-example_type">
+            <span class="sr-only">Código de</span> JSON
+          </div>
+          <pre><code>[
+    {
+        "id_vuelo": 1,
+        "id_destino": 1,
+        "aerolinea": "Iberia",
+        "fecha_salida": "2020-12-12 12:12:12",
+    },
+    {
+        "id_vuelo": 2,
+        "id_destino": 4,
+        "aerolinea": "American Airlines",
+        "fecha_salida": "2020-12-12 12:12:12",
+    },
+    {
+        "id_vuelo": 3,
+        "id_destino": 1,
+        "aerolinea": "Aerolíneas Argentinas",
+        "fecha_salida": "2020-12-12 12:12:12",
+    }
+]</code></pre>
+        </div>
+
+        <p>Y la de los destinos:</p>
+
+        <div class="code-example">
+          <div class="code-example_type">
+            <span class="sr-only">Código de</span> JSON
+          </div>
+          <pre><code>[
+    {
+        "id_destino": 1,
+        "nombre": "Barcelona",
+    },
+    {
+        "id_destino": 2,
+        "nombre": "París",
+    },
+    {
+        "id_destino": 2,
+        "nombre": "Río de Janeiro",
+    },
+    {
+        "id_destino": 4,
+        "nombre": "Nueva York",
+    }
+]</code></pre>
+        </div>
+
+        <p>
+          Para poder listar los vuelos con sus destinos, necesitamos tener la
+          data de destinos. Por lo tanto, decidimos agregar un
+          <i>loader</i> mientras ambas peticiones se completan. Cuando las dos
+          terminan, quitamos el <i>loader</i> y cargamos la interfaz.
+        </p>
+
+        <p>
+          La pregunta del millón es: ¿Cómo sabemos cuándo terminan de cargar
+          ambas peticiones?
+        </p>
+
+        <p>
+          Puede completarse cualquiera primero, independientemente del orden en
+          que las ejecutamos.
+        </p>
+
+        <p>Una posible solución:</p>
+
+        <div class="code-example">
+          <div class="code-example_type">
+            <span class="sr-only">Código de</span> JavaScript
+          </div>
+          <pre><code>function cargarPaginaVuelos() {
+    let vuelosCompletos = false,
+        destinosCompletos = false,
+        vuelos = [],
+        destinos = [];
+
+    agregarLoader();
+    // Simulamos función de Ajax.
+    ajaxRequest({
+        url: 'api/vuelos',
+        success: function(response) {
+            vuelos = JSON.parse(response);
+            vuelosCompletos = true;
+
+            if(destinosCompletos) {
+                quitarLoader();
+                generarInterfaz();
+            )
+        }
+    });
+
+    // Simulamos función de Ajax.
+    ajaxRequest({
+        url: 'api/destinos',
+        success: function(response) {
+            destinos = JSON.parse(response);
+            destinosCompletos = true;
+
+            if(vuelosCompletos) {
+                quitarLoader();
+                generarInterfaz();
+            )
+        }
+    });
+}</code></pre>
+        </div>
+
+        <p>
+          Se podría limpiar un poco usando una función que englobe los "if()
+          {...}" y chequee por ambos, pero requeriría ocupar un nombre de
+          función (que tal vez no necesitábamos) y de todas formas repetir la
+          llamada en ambos casos.
+        </p>
+
+        <p>
+          Con la <i>API</i> de promesas, tenemos algunas bondades, como la
+          posibilidad de que algo se ejecute cuando todas las promesas se
+          cumplan. Suponiendo que ajaxRequest retorne una promesa:
+        </p>
+
+        <div class="code-example">
+          <div class="code-example_type">
+            <span class="sr-only">Código de</span> JavaScript
+          </div>
+          <pre><code>function cargarPaginaVuelos() {
+    let vuelos = [],
+        destinos = [];
+
+    agregarLoader();
+    Promise.all([
+        ajaxRequest({url: 'api/vuelos'}),
+        ajaxRequest({url: 'api/destinos'})
+    ]).then(respuestas => {
+        vuelos = respuestas[0];
+        destinos = respuestas[1];
+
+        quitarLoader();
+        generarInterfaz();
+    })
+}</code></pre>
+        </div>
+
+        <p>Mucho mejor, ¿no? :)</p>
+      </div>
+
+      <div class="text-block">
+        <h2 id="chaining">Encadenando promesas</h2>
+
+        <p>
+          Una de las características interesantes de las promesas, es el hecho
+          de que su método <code>then</code> retorne siempre una nueva instancia
+          de <code>Promise</code>. Esto permite que las promesas se puedan
+          <i>encadenar</i>. Es decir, ejecutar una cuando se complete la otra.
+        </p>
+
+        <p>
+          Cada nueva instancia, como es una <code>Promise</code>, puede tener un
+          <code>then</code>. Ese <code>then</code> va a recibir por parámetro lo
+          que sea que el <i>resolve</i> del <code>then</code> anterior haya
+          retornado.
+        </p>
+
+        <p>Por ejemplo:</p>
+
+        <div class="code-example">
+          <div class="code-example_type">
+            <span class="sr-only">Código de</span> JavaScript
+          </div>
+          <pre><code>const p = new Promise(resolve => {
+    setTimeout(() => {
+        resolve('Hola');
+    }, 500);
+});
+p.then(respuesta => {
+    // respuesta = 'Hola';
+    return respuesta + ' Mundo';
+}).then(respuesta => {
+    // respuesta = 'Hola Mundo';
+    return respuesta + '!';
+}).then(respuesta => {
+    // respuesta = 'Hola Mundo!';
+    return '¡' + respuesta;
+}).then(respuesta => {
+    // respuesta = '¡Hola Mundo!';
+    console.log(respuesta + " :)"); // Imprime "¡Hola Mundo! :)".
+});</code></pre>
+        </div>
+
+        <script>
+          // Solo porque puedo, dejo el código ejecutándose :)
+          const p = new Promise((resolve) => {
+            setTimeout(() => {
+              resolve("Hola");
+            }, 500);
+          });
+          p.then((respuesta) => {
+            // respuesta = 'Hola';
+            return respuesta + " Mundo";
+          })
+            .then((respuesta) => {
+              // respuesta = 'Hola Mundo';
+              return respuesta + "!";
+            })
+            .then((respuesta) => {
+              // respuesta = 'Hola Mundo!';
+              return "¡" + respuesta;
+            })
+            .then((respuesta) => {
+              // respuesta = '¡Hola Mundo!';
+              console.log(respuesta + " :)"); // Imprime "¡Hola Mundo! :)".
+            });
+        </script>
+
+        <p>
+          De hecho, lo dejé a ese código en una etiqueta <code>script</code>,
+          así que si abren la consola deberían ver ese texto :)
+        </p>
+      </div>
+
+      <div class="text-block">
+        <h2>Conclusión</h2>
+
+        <p>
+          La <i>API</i> de <code>Promise</code> abre todo un nuevo abanico de
+          posibilidades para manejar funcionalidades asíncronas de una manera
+          más elegante, legible, y por extensión, mantenible.
+        </p>
+
+        <p>
+          Muchas de las nuevas funcionalidades de JavaScript se basan en esta
+          <i>API</i>, comom <code>fetch</code> o las nuevas <i>keywords</i>
+          <code>async</code> y <code>await</code>.
+        </p>
+
+        <p>
+          Todo esto hace que esta <i>API</i> sea una herramienta esencial en el
+          kit de desarrollo de JS de hoy en día.
+        </p>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; Da Vinci - 2020</p>
+    </footer>
+  </body>
+</html>

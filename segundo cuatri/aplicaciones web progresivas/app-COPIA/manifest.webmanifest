@@ -1,0 +1,32 @@
+{
+  "theme_color": "#f69435",
+  "background_color": "#a69686",
+  "display": "fullscreen",
+  "scope": "/davinci/davinci%202022/segundo%20cuatri/aplicaciones%20web%20progresivas/app-COPIA/index.html",
+  "start_url": "/davinci/davinci%202022/segundo%20cuatri/aplicaciones%20web%20progresivas/app-COPIA/index.html",
+  "name": "Cartelera de películas.",
+  "short_name": "Cartelera de películas.",
+  "description": "Cartelera de películas. detallada",
+  "icons": [
+    {
+      "src": "iconos/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "iconos/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "iconos/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "iconos/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Diapo 20: CSS, offsets, scroll, eventos, teclado - Ejercicio 1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />
+        <style>
+            #juego {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .partes {
+                width: 40vw;
+                height: 40vh;
+                background-color: rgba(0, 0, 0, 0.25);
+            }
+            #controles {
+                padding: 2rem;
+            }
+            #hud {
+                background: rgba(0, 0, 0, 0.25);
+                z-index: 1000;
+                padding: 1em;
+                border-radius: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Diapo 20: CSS, offsets, scroll, eventos, teclado - Ejercicio 1</h1>
+        </header>
+        <main>
+            <h2>Jueguito</h2>
+            <ol>
+                <li>Crear cada 100ms un div de 50x50px, posición absoluta, top y left aleatorio dentro de los límites del navegador, color aleatorio de un array de 5 colores.</li>
+                <li>Que esto suceda durante 30 segundos, informar el tiempo restante en #timer.</li>
+                <li>Definir aleatoriamente el color "ganador" e informarlo en #color.</li>
+                <li>Cada vez que el usuario hace click en un div del color "ganador" suma 100 puntos, mostrar el puntaje en #puntos (empieza en 0).</li>
+                <li>Cada vez que el usuario hace click en un div que no es del color "ganador", resta 50 puntos.</li>
+            </ol>
+            <hr />
+            <div id="juego">
+                <div class="partes" id="escenario"></div>
+                <div class="partes" id="controles">
+                    <div id="hud">
+                        <p><strong>Tiempo restante:</strong> <span id="timer">0</span></p>
+                        <p><strong>Color ganador:</strong> <span id="color">0</span></p>
+                        <p><strong>Puntaje:</strong> <span id="puntos">0</span></p>
+                        <p><strong>Aciertos:</strong> <span id="aciertos">0</span> - <strong>Fallos:</strong> <span id="fallos">0</span></p>
+                    </div>
+                    <button id="start">Empezar</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+        <script src="js/ejercicio-1-1.js"></script>
+    </body>
+</html>

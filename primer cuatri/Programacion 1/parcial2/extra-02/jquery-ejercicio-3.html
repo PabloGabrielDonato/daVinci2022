@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>jQuery - Ejercicio 3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />
+        <style type="text/css">
+            #big {
+                position: fixed;
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+            #big > img {
+                height: 70%;
+            }
+            #big > a {
+                position: fixed;
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                top: 1em;
+                right: 1em;
+                border-radius: 2.5em;
+                width: 5em;
+                height: 5em;
+                background-color: rgba(255, 255, 255, 0.9);
+                font-size: 1em;
+                font-weight: 400;
+                text-align: center;
+                color: #1a4a5e;
+                text-decoration: none;
+            }
+            #big > a:hover {
+                background-color: #1a4a5e;
+                color: rgba(255, 255, 255, 0.9);
+            }
+            #big > p {
+                font-family: 'Montserrat';
+                font-size: 2em;
+                line-height: 1.5;
+                font-weight: 700;
+                text-align: center;
+                color: #d4eaf3;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>jQuery - Ejercicio 3</h1>
+        </header>
+        <main>
+            <h2>Galería con modal ampliada</h2>
+            <p>Se debe generar una ventana modal partiendo de la imagen a la que se le hace click.</p>
+            <p>La estructura debe ser un div, con un link, una imagen y un párrafo (ver referencia en el documento).</p>
+            <p>Cuando se hace click en el link de la ventana modal, debe desaparecer la ventana modal.</p>
+            <hr />
+            <div>
+                <img src="items/divididos-mollo.jpg" alt="Ricardo Mollo" />
+                <img src="items/divididos-arnedo.jpg" alt="Diego Arnedo" />
+                <img src="items/divididos-ciavarella.jpg" alt="Catriel Ciavarella" />
+            </div>
+            <!-- Referencia:
+            <div id="big">
+                <p>El alt de la imagen</p>
+                <a href="#">CERRAR</a>
+                <img src="ruta-img" alt="alt de la imagen" />
+            </div>
+            -->
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/ejercicio-3-1.js"></script>
+    </body>
+</html>

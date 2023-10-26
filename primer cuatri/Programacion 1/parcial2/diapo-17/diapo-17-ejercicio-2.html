@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Diapo 17: DOM IV - Ejercicio 2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />
+        <style type="text/css">
+            #frm {
+                align-items: center;
+            }
+            #frm > div {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            #frm > div > fieldset {
+                margin-right: 4em;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Diapo 17: DOM IV - Ejercicio 2</h1>
+        </header>
+        <main>
+            <h2>Formulario</h2>
+            <p>Tareas a realizar antes de enviar el formulario:</p>
+            <ul>
+                <li>Cargar las opciones dentro de los selects país / provincia (cuando cambia el pais, cambian las opciones de provincia).</li>
+                <li>Debe mostrar un mensaje de error personalizado para:</li>
+                <li style="list-style: none">
+                    <ul>
+                        <li>el nombre, que debe tener un mínimo de 3 caracteres.</li>
+                        <li>las claves, que al menos deben tener 4 caracteres y deben ser iguales.</li>
+                    </ul>
+                </li>
+                <li>Debe seleccionar al menos un valor para el campo Género.</li>
+                <li>Debe elegir al menos 3 intereses para enviar el formulario.</li>
+                <li>Además, debe ir mostrando la cantidad de intereses en p#cantidad.</li>
+            </ul>
+            <hr />
+            <div>
+                <form id="frm">
+                    <div>
+                        <fieldset>
+                            <legend>Usuario y clave</legend>
+                            <input type="text" name="nombre" placeholder="Nombre" required />
+                            <input type="email" name="email" placeholder="Email" required />
+                            <input type="password" name="clave" placeholder="Clave" required />
+                            <input type="password" name="reclave" placeholder="Confirmar clave" required />
+                        </fieldset>
+                        <fieldset>
+                            <legend>Género</legend>
+                            <label><input type="radio" name="genero" value="masculino" /> Masculino</label>
+                            <label><input type="radio" name="genero" value="femenino" /> Femenino</label>
+                            <label><input type="radio" name="genero" value="otro" /> Otro</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>País / Provincia</legend>
+                            <select name="pais"></select>
+                            <select name="prov"></select>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Intereses</legend>
+                            <label><input type="checkbox" name="programacion" value="programacion" /> Programación</label>
+                            <label><input type="checkbox" name="diseno" value="diseno" /> Diseño</label>
+                            <label><input type="checkbox" name="musica" value="musica" /> Música</label>
+                            <label><input type="checkbox" name="literatura" value="literatura" /> Literatura</label>
+                            <label><input type="checkbox" name="animacion" value="animacion" /> Animación</label>
+                            <p id="cant"></p>
+                        </fieldset>
+                    </div>
+                    <input type="submit" value="Enviar datos" />
+                </form>
+            </div>
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+        <script src="js/ejercicio-2-1.js"></script>
+    </body>
+</html>

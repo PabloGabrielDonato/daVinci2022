@@ -1,0 +1,43 @@
+header {
+  padding: 1.5rem 0;
+}
+main {
+  min-height: 70vh;
+}
+
+nav {
+  position: sticky !important;
+  top: 0;
+  z-index: 100;
+}
+
+footer {
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.grid-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 360px);
+  gap: 16px;
+}
+
+.form-control {
+  margin-left: 2%;
+}
+
+.delte-item {
+  color: var(--danger);
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.flex-25 {
+  flex: 25%;
+}
+.footer p {
+  margin: 0;
+}

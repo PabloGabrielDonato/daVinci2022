@@ -1,0 +1,231 @@
+body {
+    background-color: #ddd;
+}
+
+img {
+    max-width: 100%;
+}
+
+.header {
+    padding: 1.5rem 0;
+    background-color: #335;
+}
+
+h1 {
+    margin-bottom: 1.25rem;
+}
+
+q {
+    font-style: italic;
+}
+
+caption {
+    caption-side: top;
+}
+
+.logo {
+    width: 171px;
+    height: 48px;
+    background-image: url(../imgs/logo-dv.png);
+    text-indent: -9999px;
+}
+
+.main {
+    padding: 1rem;
+    background-color: #fff;
+}
+
+
+.content-table {
+    width: 300px;
+    padding: 1rem 1rem 1rem 2rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    /*background-color: rgba(240, 255, 42, 0.24);*/
+    background-color: #fafafa;
+}
+
+.text-block {
+    margin-bottom: 3rem;
+}
+
+.pk {
+    padding: .2rem;
+    border-radius: 5px;
+    background-color: #e4e4e4;
+    font-style: italic;
+}
+
+.figure-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem .5rem;
+    margin-bottom: 1rem;
+}
+
+.figure-img > * {
+    margin-bottom: 1rem;
+}
+
+.figure-img img {
+    box-shadow: 0 0 5px rgba(30, 30, 30, .5);
+}
+
+.figure-img figcaption {
+    padding: 1rem;
+    background-color: #eee;
+    font-style: italic;
+}
+
+.def-list dt {
+    margin: 0 0 .5rem;
+}
+
+.def-list dd {
+    margin: 0 0 1.25rem .75rem;
+}
+
+.table-centered {
+    width: auto;
+    margin: 0 auto  1rem;
+}
+
+.code-example {
+    position: relative;
+    padding: 1rem 2rem .25rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    background-color: #eee;
+}
+
+.code-example_type {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-right: none;
+    border-radius: 0 0 0 5px;
+    background-color: #fafafa;
+    font-size: .8rem;
+    font-style: italic;
+}
+
+.php-class-model {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.php-class-model_name {
+    border-bottom: 1px solid #ccc;
+    font-size: 1.1rem;
+}
+
+.php-class-model_attributes {
+    font-style: italic;
+}
+
+.php-class-model_attributes_list {
+    list-style: none inside;
+}
+
+.php-class-model_attributes_list li:before {
+    content: "- "
+}
+
+.quote-with-cite {
+    position: relative;
+    padding: 1rem 1rem 1rem 2rem;
+    margin: 0 1rem 2rem 1.5rem;
+    border-left: 3px solid #333;
+}
+
+.quote-with-cite cite::before {
+    content: '- ';
+}
+
+/*.quote-with-cite::before {*/
+/*content:'“';*/
+/*!*position: absolute;*!*/
+/*!*top: 0;*!*/
+/*!*left: 0;*!*/
+/*display: block;*/
+/*font-size: 3rem;*/
+/*}*/
+
+.striked {
+    text-decoration: line-through;
+}
+
+.note {
+    position: relative;
+    /*display: flex;*/
+    width: calc(100% - 2rem);
+    padding: 1rem 1rem 1rem ;
+    margin: 2.5rem 0 2.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: .95rem;
+}
+
+.note::before {
+    content: "Hey!";
+    position: absolute;
+    top: -1rem;
+    left: -.75rem;
+    padding: .25rem .5rem;
+    background-color: #efefef;
+    /*border: 1px solid #ccc;*/
+    border-radius: 5px;
+    transform: rotate(-5deg);
+    font-size: .9rem;
+}
+
+.note-trivia::before {
+    content: "Sabías que..."
+}
+
+.asking {
+    margin: 1.5rem 0;
+}
+
+.asking img {
+    display: block;
+    padding: 1rem;
+    margin: auto;
+    box-shadow: 0 0 5px rgba(30, 30, 30, .5);
+}
+
+/*.note-icon {
+    display: flex;
+    width: 50px;
+    padding: 0 1rem;
+    margin-right: 1rem;
+    border-right: 1px solid #ccc;
+    text-align: center;
+    font-size: 1.5rem;
+}*/
+
+.note p {
+    margin-bottom: 0;
+}
+
+/*.note-content {
+
+}*/
+
+
+.footer {
+    padding: 2.5rem 0;
+    background-color: #334;
+    color: #eee;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+}

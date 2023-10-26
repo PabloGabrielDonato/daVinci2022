@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax: El inicio de una aventura</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo row">Escuela Da Vinci</div>
+        </div>
+    </header>
+    <div class="container main">
+        <!--<nav>
+            <p>Tabla de navegación de la clase:</p>
+            <ul class="content-table">
+                <li><b>Repaso</b></li>
+            </ul>
+        </nav>-->
+        <h1>Ajax</h1>
+   
+        <div class="text-block">
+            <h2>Ajax: Qué es?</h2>
+
+            <p>Ajax significa <b>Asyncrhonous JavaScript and XML</b>. Se traduce: JavaScript Asíncrono (o Asincrónico) y XML.</p>
+            <p>JavaScript, porque es el lenguaje que mueve esta metodología.</p>
+            <p>Asíncrono, porque la idea es poder ejecutar acciones en paralelo a la ejecución normal del script.</p>
+            <p>Y XML... está ahí. Originalmente se lo usaba con esto, pero hoy en día nadie que pueda evitarlo lo usa (para Ajax).</p>
+
+            <p>Ajax es una metodología de trabajo que nos permite básicamente realizar peticiones al servidor web desde el cliente (el browser) <b>sin necesidad de refrescar la página</b>. Haciéndolo de manera <i>asincrónica</i>.</p>
+
+            <h3>Programación Asíncrona con JS</h3>
+            <p>Como ya sabemos de php, para que el servidor pueda hacer algo, normalmente tiene que recibir la petición de cliente primero, y a partir de eso le genera una respuesta.</p>
+            <p>Con Ajax, hacemos que esa petición se envíe, pero desde JS, no de la forma tradicional del browser.</p>
+            <p>Pero esto supondría un problema: Las peticiones pueden tardar un tiempo en ejecutarse. Dependiendo de la velocidad de red del usuario, el tráfico del servidor, la distancia entre el cliente y el back, etc, podría tardar desde fracciones de segundo hasta algunos segundos enteros.</p>
+
+            <p>Por qué eso supone un problema? Porque JavaScript trabaja en un único <i>thread</i> (hilo). Esto significa que JS puede hacer solo una cosa por vez. Cada instrucción tiene que esperar a que la anterior se complete para poder ejecutarse.</p>
+            <p>Si desde JS yo hiciera una petición al backend como cualquier otra instrucción, JS tendría que quedar congelado, sin poder hacer absolutamente más nada, hasta que la petición se complete. Suena una pésima experiencia de usuario? <i>Lo es.</i></p>
+
+            <p>Eso es a lo que llamamos ejecución sincrónica de las instrucciones del código. Van en "sincronía" ya que una espera a que la anterior termine.</p>
+
+            <p>Como esto es muy restrictivo para muchas cosas, se inventaron soluciones para poder ejecutar acciones de manera asíncrona. Una de ellas es trabajar con <i>multi-thread</i> (multi-hilos), algo que nos permiten los procesadores con múltiples núcleos, por ejemplo, donde cada hilo puede llevar su propia ejecución de instrucciones. Pero JS dijimos siempre trabaja en un único thread, así que esto no nos sirve.</p>
+
+            <p>La solución? Lo que se conoce como el <b>Event Loop</b>.</p>
+
+            <p>Sin entrar ahora en grandes detalles de cómo eso funciona por dentro, básicamente es una herramienta que JS nos ofrece para que podamos ejecutar código asíncrono.</p>
+            <div class="note">
+                <!--<div class="note-icon note-icon_info">i</div>-->
+                <!--<div class="note-content">-->
+                <p>Si están interesados en saber más del Event Loop, acá les dejo un video de YouTube de una presentación en la JSConf EU que lo explica de manera <b>excelente</b>, y tiene subtítulos en español: <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank">Philip Roberts: ¿Que diablos es el "event loop" (bucle de eventos) de todos modos? | JSConf EU</a></p>
+                <!--</div>-->
+            </div>
+
+            <p>La forma en que lo hace, es a través de <b>callbacks</b>.</p>
+            <p>Un callback ("devolver la llamada" en inglés) es una función que le pasamos a alguna instrucción que va a completarse en un futuro, para que cuando se complete, <i>nos devuelva la llamada</i> ejecutando ese callback.</p>
+
+            <p>Por ejemplo, es algo que vinieron usando mucho con <i>eventos</i>.</p>
+            <p>Cuando definimos un evento, no sabemos cuándo el usuario va a ejecutar la acción que dispare ese evento. Va a suceder, pero en un futuro.</p>
+            <p>Así que le asignamos una función a ejecutar cuando eso pase. Eso es el callback.</p>
+        </div>
+
+        <div class="text-block">
+            <h2>Cómo usamos Ajax</h2>
+
+            <p>Para trabajar con Ajax, hoy en día, tenemos 2 herramientas nativas:</p>
+
+            <ul>
+                <li>El objeto <b>XHR</b></li>
+                <li>La función <b>fetch()</b></li>
+            </ul>
+
+            <p><i>XHR</i> es la forma original de uso de Ajax, y la que vamos a usar en un principio para ayudarnos a ilustrar algunos conceptos importantes.</p>
+            <p><i>fetch</i> es una forma más nueva de ejecutar Ajax basada en <i>Promises</i> que vamos a estar viendo en un par de clases.</p>
+
+            <p>Cómo Ajax tiene mucho de armar las peticiones de HTTP según nuestras necesidades, es muy importante tener un poco más de idea de cómo funciona HTTP. Así que antes de entrarnos en los contenidos específicos de XHR o fetch, vamos a hablar un poco de HTTP.</p>
+
+            <h3>HTTP: Métodos/Verbos y Mensajes</h3>
+
+            <p>Vamos a enfocarnos en cómo HTTP comunica al cliente y el servidor.</p>
+
+            <p>Básicamente, HTTP funciona a través del concepto de <b>mensajes</b>. Es decir, una comunicación que envía una parte a otra.</p>
+            <p>Esos mensajes toman 2 formas en HTTP, como podemos ver en la <a href="#figura-2-1">figura 2.1</a>.</p>
+
+            <dl>
+                <dt>Petición / Request</dt>
+                <dd>Los mensajes que se envían del cliente al servidor.</dd>
+                <dt>Respuesta / Response</dt>
+                <dd>Los mensajes que el servidor le envía de vuelta al cliente.</dd>
+            </dl>
+
+            <figure class="figure-img" id="figura-2-1">
+                <img src="imgs/http-messages.png" alt="Diagrama de cliente y servidor intercambiando mensajes de petición y respuesta.">
+                <figcaption>2.1 - El cliente envía una petición al servidor, el cual retorna una respuesta luego de procesarla.</figcaption>
+            </figure>
+
+            <p>Cada petición puede enviarse con algunas diferencias dependiendo el <i>verbo</i> de HTTP que usemos.</p>
+            <p>Si bien hay 2 de esos verbos que conocemos bien, a lo largo de la cursada vamos a ver que la cantidad de verbos relevantes aumenta. Se los voy presentando para que los conozcan:</p>
+
+            <ul>
+                <li>GET</li>
+                <li>POST</li>
+                <li>PUT</li>
+                <li>PATCH</li>
+                <li>DELETE</li>
+                <li>OPTIONS</li>
+            </ul>
+
+            <p>Dependiendo el verbo (más correctamente llamado método) de la petición que elijamos, va a cambiar un poco cómo se compone el mensaje de la petición, particularmente si llevan <i>cuerpo</i> o no.</p>
+
+            <h4>Head y Body no son exclusivos de HTML</h4>
+            <p>Cuerpo? Cómo que cuerpo?</p>
+
+            <p>Los mensajes de HTTP se componen de 3 partes:</p>
+
+            <dl>
+                <dt>La línea de la petición (Request-line)</dt>
+                <dd>Una línea de texto que indica lo que se está pidiendo y el cómo. Tiene 3 elementos:
+                    <ul>
+                        <li>Método de HTTP</li>
+                        <li>El objetivo de la petición (URL generalmente)</li>
+                        <li>La versión de HTTP que utiliza, por ejemplo HTTP/1.1</li>
+                    </ul>
+                </dd>
+                <dt>El head (lista de headers)</dt>
+                <dd>Una lista de <code>headers</code> separados por un salto de línea. Cada header tiene el formato de: nombre del header, seguido de un dos puntos, seguido del valor para ese header. Acá hay algunos que son muy conocidos, como <code>Content-Type</code>, o como <code>Location</code>. De hecho, en php recordarán el uso de la función <code>header()</code> que utilizábamos para redireccionar, tipo <code>header("Location: index.php")</code>. La función header específicamente setea el valor de un header en la respuesta.</dd>
+                <dt>El body (también llamado "data payload" o "carga de infomación")</dt>
+                <dd>El contenido de la petición. En el caso de la response, suele ser el recurso que se estaba pidiendo (ej: una imagen, un HTML). En el caso de la request, depende el método utilizado puede o no llevar body. GET, OPTIONS y DELETE no llevan body (técnicamente pueden, pero en la práctica no se suele ver); POST, PUT y PATCH llevan los datos que se envían, como pueden ser los campos de un formulario.</dd>
+            </dl>
+
+            <p>Estos conceptos: los tipos de mensajes, los métodos de HTTP y las partes que componen a un mensaje, van a ser de vital importancia a lo largo de todo el trabajo con Ajax. Esto incluye el desarrollo de aplicaciones tipo SPA y PWA, al igual que el trabajo habitual con algunos de los frameworks más importantes de la actualidad, como React o Vue.js.</p>
+
+            <h3>Objeto XHR</h3>
+
+            <p>Ahora sí, podemos detenernos a hablar un poco sobre esta forma de usar Ajax.</p>
+            <p><code>XHR</code> son siglas de <code>XMLHttpRequest</code>. Nuevamente, XML pueden hacer de cuenta que solo está para que suene más lindo. Lo importante del nombre es "HttpRequest", es decir, que permite hacer peticiones de HTTP.</p>
+            <p><code>XMLHttpRequest</code> es una clase nativa de JS. Cada instancia de esa clase representa una petición a realizar al servidor.</p>
+            <p>Es decir, si yo necesito realizar 5 peticiones, tendré 5 instancias de XHR.</p>
+
+            <p>Para generarlo, solo tenemos que instanciarlo:</p>
+
+            <div class="code-example">
+                <span class="code-example_type"><span class="sr-only">Código de:</span> JavaScript</span>
+                <pre><code>const xhr = new XMLHttpRequest();</code></pre>
+            </div>
+
+            <p>El siguiente paso, sería configurar el objeto de <code>XHR</code>.</p>
+
+            <p>Vamos a listar algunos de los métodos más importantes que vamos a necesitar:</p>
+
+            <dl>
+                <dt><code>open(<i>method</i>, <i>resource</i> <i>[, isAsync]</i>)</code></dt>
+                <dd>Prepara la petición. Este método es el primero que vamos a invocar dentro del objeto de <code>XHR</code>. Recibe 3 parámetros:
+                    <ol>
+                        <li><code>method</code> <code>{String}</code> El método de HTTP de la petición. Ejemplo: <code>'GET'</code> o <code>'PUT'</code>.</li>
+                        <li><code>resource</code> <code>{String}</code> La URL del recurso que quiero peticionar. Ejemplo: <code>'api/productos.php'</code> o <code>'http://saraza.com/productos.php'</code>.</li>
+                        <li><code>isAsync</code> <code>{Boolean}</code> Si la petición debe ser asíncrona o no. Este parámetro opcional hoy en día muchos browsers lo ignoran, ya que no tiene mucha gracia realmente. Default en <code>true</code>.</li>
+                    </ol>
+                </dd>
+
+                <dt><code>setRequestHeader(<i>name</i>, <i>value</i>)</code></dt>
+                <dd>Setea un header para la petición. Este método en algunos casos es muy importante, por ejemplo, cuando vayamos a realizar peticiones por <code>POST</code> simulando un formulario de HTML. Recibe 2 parámetros:
+                    <ol>
+                        <li><code>name</code> <code>{String}</code> El nombre del header. Ejemplo: <code>'Content-Type'</code>.</li>
+                        <li><code>value</code> <code>{String}</code> El valor del header. Ejemplo: <code>'text/html'</code>.</li>
+                    </ol>
+                </dd>
+
+                <dt><code>send(<i>bodyPayload</i>)</code></dt>
+                <dd>Envía la petición. Hasta que no llamemos a este método, <code>XHR</code> no dispara la petición. Recibe 1 parámetro:
+                    <ol>
+                        <li><code>bodyPayload</code> <code>{String|null}</code> El contenido de la petición. Si la petición es <code>GET</code> o <code>DELETE</code>, esto va a quedar en <code>null</code>. En <code>POST</code>, <code>PUT</code> o <code>PATCH</code>, acá van a viajar los datos.</li>
+                    </ol>
+                </dd>
+            </dl>
+
+            <p>Dijimos que Ajax funciona de manera asíncrona, y que eso implicaba tener algún tipo de callback. Los más observadores pueden que hayan notado que en ninguno de esos métodos hablamos de un callback aún.</p>
+            <p>Para definir el callback, tenemos que escuchar el evento <code>onreadystatechange</code> del objeto <code>XHR</code>, que se empieza a ejecutar cuando abrimos la petición.</p>
+
+            <div class="code-example">
+                <span class="code-example_type"><span class="sr-only">Código de:</span> JavaScript</span>
+                <pre><code>xhr.addEventListener('readystatechange', function() { ... });</code></pre>
+            </div>
+
+            <p>Ese evento va a dispararse cada vez que cambie el <code>readyState</code> de la petición (de ahí el nombre del evento), que al terminar vamos a tener acceso a la data de la respuesta, como <code>status</code>, <code>statusText</code>, <code>responseText</code> o <code>responseXML</code>.</p>
+
+            <p>Qué es todo eso? Vamos a explicarlo:</p>
+
+            <dl>
+                <dt><code>readyState</code></dt>
+                <dd>Es un <code>int</code> que va de 0 a 4, indicando cada una de <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState" target="_blank">las distintas etapas de la petición</a>. De esos números, solo nos interesa el 4, que indica <code>DONE</code>, es decir, la petición terminó y tengo la respuesta.</dd>
+                <dt><code>status</code></dt>
+                <dd>Que la respuesta haya terminado, no significa que tenga el resultado que espero. Puede habernos retornado un 404, 403, 500, o cualquier otro <a href="https://http.cat/" target="_blank">código de estado de HTTP</a>. <code>status</code> nos retorna un <code>int</code> con ese código de estado. Esto es vital para poder saber cómo proceder.</dd>
+                <dt><code>statusText</code></dt>
+                <dd>Por si el <a href="https://http.cat/" target="_blank">código de estado de HTTP</a> no es suficiente, podemos pedir un <code>String</code> que nos de su represetación como texto. Por ejemplo, <code>200</code> nos daría <code>OK</code>, <code>404</code> nos daría <code>Not Found</code>, etc.</dd>
+                <dt><code>responseText</code></dt>
+                <dd>Contiene un <code>String</code> con la respuesta. Principalmente, Ajax se utiliza para traer texto (ej: HTML, JSON), así que esta es la forma más habitual de pedirlo.</dd>
+                <dt><code>responseXML</code></dt>
+                <dd>Jajajajajaja. ... Qué? En serio quieren saber de éste? Bueno. Retorna un <code>Document</code> que contiene el DOM del XML que recibimos, si la respuesta fue un XML. Pero como seguramente no quieran usar un XML si pueden evitarlo, lo más probable es que no se encuentren con esto.</dd>
+            </dl>
+
+            <p>Usando esos métodos, eventos y propiedades, vamos a poder realizar todo tipo de peticiones de Ajax para catapultar nuestra web al éxito y al dominio mundial.</p>
+
+            <p>El resto, será cuestión de verlo en funcionamiento durante la clase ;)</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; Da Vinci - 2022</p>
+    </footer>
+</body>
+</html>

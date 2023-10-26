@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- MANIFIESTO -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="estilos.css" />
+
+    <title>Primera entrega aplicaciones web progresivas</title>
+  </head>
+  <body>
+    <main>
+      <!-- NavBar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#barra"
+            aria-controls="barra"
+            aria-expanded="false"
+            aria-label="Botón hamburguesa"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="barra">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contenedor">Películas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contacto">¡Contactános!</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Header -->
+      <header class="encabezado">
+        <h1 class="text-center">Sitio web de películas</h1>
+      </header>
+      <!-- Contenedor peliculas -->
+      <div class="contenedor" id="contenedor"></div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="titulo"></h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="detalle" id="detalle"></div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- boton compartir -->
+    <button type="button" class="share btn btn-info">¡Comparti!</button>
+    <!-- Contacto -->
+    <section id="contacto" class="container">
+      <h2>¡Completá este formulario para seguir ayudandonos!</h2>
+      <form action="contactoprocesado.php" method="get">
+        <div class="form-floating w-50 mb-3">
+          <input
+            type="text"
+            name="nomb"
+            class="form-control"
+            id="nombre"
+            placeholder="Nombre"
+            required
+          />
+          <label for="floatingInput">Nombre </label>
+        </div>
+        <div class="form-floating w-50 mb-3">
+          <input
+            type="text"
+            name="apellido"
+            class="form-control"
+            id="apellido"
+            placeholder="Apellido"
+            required
+          />
+          <label for="floatingInput">Apellido</label>
+        </div>
+        <div class="form-floating w-50 mb-3">
+          <input
+            type="number"
+            name="telefono"
+            class="form-control"
+            id="telefono"
+            placeholder="email"
+            required
+          />
+          <label for="floatingInput">Número de teléfono</label>
+        </div>
+        <div class="form-floating w-50 mb-3">
+          <textarea
+            class="form-control"
+            name="opi"
+            placeholder="Leave a comment here"
+            id="comentario"
+            style="height: 100px"
+          ></textarea>
+          <label for="floatingTextarea2"
+            >¿Qué película busco y no encontró?</label
+          >
+        </div>
+
+        <button class="btn btn-success" type="button" onclick="Enviar()">
+          Enviar
+        </button>
+      </form>
+      <div id="mostrar"></div>
+    </section>
+
+    <footer>
+      <p>&copy; Copyright Pablo Gabriel Donato. Derechos reservados - 2022</p>
+    </footer>
+
+    <!-- ARCHIVO JS -->
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/b74c22d92d.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lilita+One&display=swap');
+:root {
+    --primary: #045a68;
+
+}
+
+.container {
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+}
+
+h1, h2{
+    font-family: 'Lilita One', cursive;
+    color: #045a68;
+}
+
+.card {
+    border: 1px solid lightslategray;
+    border-radius: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.oculto {
+    display: none;
+}

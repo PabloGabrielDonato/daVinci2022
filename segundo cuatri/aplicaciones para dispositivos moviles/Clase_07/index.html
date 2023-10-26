@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Renderizado de listas (V-FOR) y Computadas</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="bg-success">
+      <h1 class="text-center text-light">Renderizado de Listas & Computadas</h1>
+    </header>
+    <main id="app" class="container">
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <h4><i class="fa-solid fa-database"></i> Data</h4>
+          <pre class="text-danger">
+                    {{ $data }}
+                </pre
+          >
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4">
+            <label for="">Comprar</label>
+            <input
+              v-model="producto"
+              class="form-control mt-2"
+              type="text"
+              placeholder="Remera"
+            />
+            <input
+              v-model.number="precio"
+              class="form-control mt-2"
+              type="number"
+              placeholder="$100"
+            />
+
+            <button
+              v-on:click="agregar()"
+              class="btn btn-outline-success mt-4"
+              type="button"
+            >
+              <i class="fa-solid fa-cart-plus"></i> Agregar
+            </button>
+            <button
+              v-on:click="borrarTodo()"
+              class="btn btn-outline-danger mt-2"
+              type="button"
+            >
+              <i class="fa-solid fa-trash-can"></i> Vaciar
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card p-4">
+            <h2 class="text-center text-info">Lista</h2>
+            <label for="buscar">Buscar</label>
+            <input
+              v-model="palabraFiltro"
+              class="form-control"
+              type="text"
+              id="buscar"
+            />
+            <ul>
+              <li
+                v-for=" item in productosFiltrados"
+                class="d-flex justify-content-between"
+              >
+                <span v-text="item.nombre"></span>
+                <span>$<span v-text="item.precio"></span></span>
+              </li>
+            </ul>
+            <div class="card-footer d-flex justify-content-between">
+              <p class="text-primary">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span v-text="cantidadProducto"></span>
+              </p>
+              <p class="text-primary">
+                <i class="fa-solid fa-dollar-sign"></i
+                ><span v-text="todoCarrito"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ELIMINAR SI NO SRIVE, PRUEBAS -->
+      <h2>Productos</h2>
+      <card
+        v-for="(producto, index) in lista"
+        v-bind:nombre="producto.nombre"
+        v-bind:foto="producto.foto"
+        v-bind:precio="producto.precio"
+      ></card>
+    </main>
+    <footer>
+      <p>Aplicaciones para Dispositivos Móviles</p>
+    </footer>
+
+    <script src="../libs/vue.js"></script>
+    <script src="../Clase_07/card.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

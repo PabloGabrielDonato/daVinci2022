@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Diapo 20: CSS, offsets, scroll, eventos, teclado - Ejercicio 2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />
+        <style>
+            header {
+                position: fixed;
+                z-index: 1;
+                width: 100%;
+                background-color: #134f5c;
+                color: #d0e0e3;
+            }
+            nav {
+                margin: 2rem 0;
+                width: 80%;
+                background: rgba(255, 255, 255, 0.5);
+            }
+            nav ul {
+                display: flex;
+                justify-content: center;
+                list-style: none;
+            }
+            nav ul li {
+                padding: 1rem;
+                font-size: 2rem;
+            }
+            nav a {
+                font-size: inherit;
+                text-decoration: none;
+                color: black;
+            }
+
+            nav a:hover {
+                opacity: 0.75;
+            }
+            section {
+                padding: 2rem;
+                min-height: 80vh;
+            }
+            .active {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Diapo 20: CSS, offsets, scroll, eventos, teclado - Ejercicio 2</h1>
+            <nav>
+                <ul>
+                    <li><a href="#seccion-1">Sección 1</a></li>
+                    <li><a href="#seccion-2">Sección 2</a></li>
+                    <li><a href="#seccion-3">Sección 3</a></li>
+                    <li><a href="#seccion-4">Sección 4</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="seccion-1">
+                <h2>Sección 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repellat at iste officiis perspiciatis blanditiis assumenda expedita quasi, eveniet enim quas aperiam cumque doloribus asperiores sapiente, maxime omnis, nam incidunt.</p>
+                <p>Repudiandae, dignissimos. Suscipit a quos rerum dicta recusandae at quia quasi assumenda ratione distinctio aspernatur quo nemo, est tempora, nesciunt earum non et deleniti harum dolores quae reprehenderit! Sequi, delectus.</p>
+                <p>Architecto totam quasi iste, velit corporis qui beatae ducimus incidunt in commodi dolores quos alias aspernatur deleniti dolorum praesentium culpa dolorem sunt dolor. Obcaecati temporibus dolor omnis laboriosam assumenda possimus.</p>
+                <p>Voluptate quo sunt delectus suscipit id, tenetur quas non expedita, eveniet quod doloribus reprehenderit aut, voluptatem dignissimos inventore error eligendi consequuntur magni nisi! Vitae atque soluta amet praesentium veritatis accusamus.</p>
+                <p>Veniam eum possimus aliquam cupiditate, temporibus omnis praesentium, id commodi labore deleniti inventore doloremque facere unde. Ratione tenetur doloremque, ea quae molestiae voluptatem laboriosam, eaque natus harum a nobis quidem.</p>
+            </section>
+            <section id="seccion-2">
+                <h2>Sección 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repellat at iste officiis perspiciatis blanditiis assumenda expedita quasi, eveniet enim quas aperiam cumque doloribus asperiores sapiente, maxime omnis, nam incidunt.</p>
+                <p>Repudiandae, dignissimos. Suscipit a quos rerum dicta recusandae at quia quasi assumenda ratione distinctio aspernatur quo nemo, est tempora, nesciunt earum non et deleniti harum dolores quae reprehenderit! Sequi, delectus.</p>
+                <p>Architecto totam quasi iste, velit corporis qui beatae ducimus incidunt in commodi dolores quos alias aspernatur deleniti dolorum praesentium culpa dolorem sunt dolor. Obcaecati temporibus dolor omnis laboriosam assumenda possimus.</p>
+                <p>Voluptate quo sunt delectus suscipit id, tenetur quas non expedita, eveniet quod doloribus reprehenderit aut, voluptatem dignissimos inventore error eligendi consequuntur magni nisi! Vitae atque soluta amet praesentium veritatis accusamus.</p>
+                <p>Veniam eum possimus aliquam cupiditate, temporibus omnis praesentium, id commodi labore deleniti inventore doloremque facere unde. Ratione tenetur doloremque, ea quae molestiae voluptatem laboriosam, eaque natus harum a nobis quidem.</p>
+            </section>
+            <section id="seccion-3">
+                <h2>Sección 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repellat at iste officiis perspiciatis blanditiis assumenda expedita quasi, eveniet enim quas aperiam cumque doloribus asperiores sapiente, maxime omnis, nam incidunt.</p>
+                <p>Repudiandae, dignissimos. Suscipit a quos rerum dicta recusandae at quia quasi assumenda ratione distinctio aspernatur quo nemo, est tempora, nesciunt earum non et deleniti harum dolores quae reprehenderit! Sequi, delectus.</p>
+                <p>Architecto totam quasi iste, velit corporis qui beatae ducimus incidunt in commodi dolores quos alias aspernatur deleniti dolorum praesentium culpa dolorem sunt dolor. Obcaecati temporibus dolor omnis laboriosam assumenda possimus.</p>
+                <p>Voluptate quo sunt delectus suscipit id, tenetur quas non expedita, eveniet quod doloribus reprehenderit aut, voluptatem dignissimos inventore error eligendi consequuntur magni nisi! Vitae atque soluta amet praesentium veritatis accusamus.</p>
+                <p>Veniam eum possimus aliquam cupiditate, temporibus omnis praesentium, id commodi labore deleniti inventore doloremque facere unde. Ratione tenetur doloremque, ea quae molestiae voluptatem laboriosam, eaque natus harum a nobis quidem.</p>
+            </section>
+            <section id="seccion-4">
+                <h2>Sección 4</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam repellat at iste officiis perspiciatis blanditiis assumenda expedita quasi, eveniet enim quas aperiam cumque doloribus asperiores sapiente, maxime omnis, nam incidunt.</p>
+                <p>Repudiandae, dignissimos. Suscipit a quos rerum dicta recusandae at quia quasi assumenda ratione distinctio aspernatur quo nemo, est tempora, nesciunt earum non et deleniti harum dolores quae reprehenderit! Sequi, delectus.</p>
+                <p>Architecto totam quasi iste, velit corporis qui beatae ducimus incidunt in commodi dolores quos alias aspernatur deleniti dolorum praesentium culpa dolorem sunt dolor. Obcaecati temporibus dolor omnis laboriosam assumenda possimus.</p>
+                <p>Voluptate quo sunt delectus suscipit id, tenetur quas non expedita, eveniet quod doloribus reprehenderit aut, voluptatem dignissimos inventore error eligendi consequuntur magni nisi! Vitae atque soluta amet praesentium veritatis accusamus.</p>
+                <p>Veniam eum possimus aliquam cupiditate, temporibus omnis praesentium, id commodi labore deleniti inventore doloremque facere unde. Ratione tenetur doloremque, ea quae molestiae voluptatem laboriosam, eaque natus harum a nobis quidem.</p>
+            </section>
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+        <script src="js/ejercicio-2-1.js"></script>
+    </body>
+</html>

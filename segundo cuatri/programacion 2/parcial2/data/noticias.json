@@ -1,0 +1,50 @@
+[
+	{
+		"noticia_id": 1,
+		"titulo": "Ginóbili sigue rompiendo récords",
+		"sinopsis": "Emanuel 'Manu' Ginóbili viene rompiendo algunos récords tanto de su equipo como de la liga.",
+		"texto": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolorem in nobis animi eaque reiciendis quam voluptatum explicabo! Inventore accusantium culpa voluptates fugiat explicabo illo vel eius dignissimos alias eos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos omnis sit nostrum obcaecati repudiandae numquam. Temporibus autem maxime sequi rem, voluptatem vitae aperiam nemo, dolores sint, fuga quos quae porro?",
+		"imagen": "manu.jpg",
+		"imagen_descripcion": "Manu Ginóbili"
+	},
+	{
+		"noticia_id": 2,
+		"titulo": "Houston Rockets lidera la conferencia",
+		"sinopsis": "De la mano de James Harden, los Rockets se apuntan como candidatos para ganar los playoff.",
+		"texto": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolorem in nobis animi eaque reiciendis quam voluptatum explicabo! Inventore accusantium culpa voluptates fugiat explicabo illo vel eius dignissimos alias eos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos omnis sit nostrum obcaecati repudiandae numquam. Temporibus autem maxime sequi rem, voluptatem vitae aperiam nemo, dolores sint, fuga quos quae porro?",
+		"imagen": "rockets-logo.jpg",
+		"imagen_descripcion": "Logo de los Houston Rockets"
+	},
+	{
+		"noticia_id": 3,
+		"titulo": "Toronto Raptors queda primero en el Este",
+		"sinopsis": "Los Raptors de Lowry y DeRozan se quedan con el primer lugar de su conferencia.",
+		"texto": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolorem in nobis animi eaque reiciendis quam voluptatum explicabo! Inventore accusantium culpa voluptates fugiat explicabo illo vel eius dignissimos alias eos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos omnis sit nostrum obcaecati repudiandae numquam. Temporibus autem maxime sequi rem, voluptatem vitae aperiam nemo, dolores sint, fuga quos quae porro?",
+		"imagen": "raptors-logo.jpg",
+		"imagen_descripcion": "Logo de los Toronto Raptors"
+	},
+	{
+		"noticia_id": 4,
+		"titulo": "Denver se queda corto por un partido",
+		"sinopsis": "Quedó a una victoria y media de clasificar a los playoff.",
+		"texto": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolorem in nobis animi eaque reiciendis quam voluptatum explicabo! Inventore accusantium culpa voluptates fugiat explicabo illo vel eius dignissimos alias eos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos omnis sit nostrum obcaecati repudiandae numquam. Temporibus autem maxime sequi rem, voluptatem vitae aperiam nemo, dolores sint, fuga quos quae porro?",
+		"imagen": "nuggets-logo.jpg",
+		"imagen_descripcion": "Logo de los Denver Nuggets"
+	},
+	{
+		"noticia_id": 5,
+		"titulo": "Nueva noticia de ejemplo",
+		"sinopsis": "Probando cómo agregar noticias desde el JSON",
+		"texto": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolorem in nobis animi eaque reiciendis quam voluptatum explicabo! Inventore accusantium culpa voluptates fugiat explicabo illo vel eius dignissimos alias eos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos omnis sit nostrum obcaecati repudiandae numquam. Temporibus autem maxime sequi rem, voluptatem vitae aperiam nemo, dolores sint, fuga quos quae porro?",
+		"imagen": "manu.jpg",
+		"imagen_descripcion": "Manu Ginóbili"
+	},
+	{
+		"noticia_id": 6,
+		"titulo": "Otra noticia",
+		"sinopsis": "Seguimos probando.",
+		"texto": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolorem in nobis animi eaque reiciendis quam voluptatum explicabo! Inventore accusantium culpa voluptates fugiat explicabo illo vel eius dignissimos alias eos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos omnis sit nostrum obcaecati repudiandae numquam. Temporibus autem maxime sequi rem, voluptatem vitae aperiam nemo, dolores sint, fuga quos quae porro?",
+		"imagen": "manu.jpg",
+		"imagen_descripcion": "Manu Ginóbili"
+	}
+]

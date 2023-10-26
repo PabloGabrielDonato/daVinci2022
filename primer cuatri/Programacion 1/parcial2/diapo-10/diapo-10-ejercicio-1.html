@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Diapo 10: Objetos II - Ejercicio 1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Diapo 10: Objetos II - Ejercicio 1</h1>
+        </header>
+        <main>
+            <h2>Sistema de alumnos</h2>
+            <p>Crear la clase <strong>Alumno</strong> que genere un nuevo alumno:</p>
+            <ul>
+                <li>Tiene una <strong>propiedad nombre</strong>, que será un string con el nombre del alumno.</li>
+                <li>Tiene una <strong>propiedad materias</strong>, que será un array de las las materias cursadas.</li>
+                <li>Tiene un <strong>método ingresarNombre</strong> que establece el nombre del alumno.</li>
+                <li>Tiene un <strong>método guardarMateria</strong> que debe crear nuevas materias y agregarlas a materias mientras lo desee el usuario.</li>
+                <li>Tiene un <strong>método calacularPromedio</strong> que calcula y devuelve el promedio de las notas del alumno.</li>
+                <li>Tiene un <strong>método armar</strong> que muestra el nombre y las materias del alumno.</li>
+            </ul>
+            <p>Crear la clase <strong>Materia</strong> que genere una nueva materia:</p>
+            <ul>
+                <li>Tiene una <strong>propiedad nombre</strong>, que será un string con el nombre de la materia.</li>
+                <li>Tiene una <strong>propiedad nota</strong>, que será un number con la nota del alumno.</li>
+                <li>Tiene un <strong>método ingresarNombre</strong> que establece el nombre de la materia.</li>
+                <li>Tiene un <strong>método ingresarNota</strong> que establece la nota válida de la materia.</li>
+                <li>Tiene un <strong>método leerNota</strong> que devuelve la nota.</li>
+                <li>Tiene un <strong>método armar</strong> que muestra el nombre y la nota de la materia.</li>
+            </ul>
+            <p>Se desconoce la cantidad de alumnos y de las materias.</p>
+            <p>Calcular e informar el promedio de las notas del alumno.</p>
+            <p>Los valores deben ser válidos (las notas del 1 al 10, inclusive).</p>
+            <p>Al oprimir el botón "Cargar alumnos", se debe dispara la función Cargar(), que genera un nuevo Alumno y cada una de sus Materias.</p>
+            <p>Al oprimir el botón "Mostrar datos", se debe disparar la función Mostrar(), que debe listar todos los alumnos (la cantidad también), sus datos, materias y los promedios.</p>
+            <button onclick="Cargar();">Cargar alumno</button>
+            <button onclick="Mostrar();">Mostrar datos</button>
+            <div id="info"></div>
+            <script src="js/ejercicio-1-1.js"></script>
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 04 - Directivas II</title>
+    <link rel="stylesheet" href="../libs/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="text-info text-center"> Clase 04 - Renderizado Condicional y Renderizado de Listas</h1>
+    </header>
+    <main id="app">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h2 class="text-success text-center">Login</h2>
+
+                <form v-on:submit.prevent="login" action="" class="card p-3">
+
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input v-model="email" v-on:change="ocultarError" class="form-control" type="email">
+                    </div>
+                    <div v-if="email.length > 3 && email.length < 20"  class="form-group">
+                        <label for="">Contraseña</label>
+                        <input v-model="pass" v-on:change="ocultarError" class="form-control" type="password">
+                    </div>
+
+                    <div v-if="error" class="alert alert-dismissible alert-danger mt-3">
+                        <strong>Error !</strong> Usuario o Contraseña incorrectos
+                    </div>
+
+                    <button class="btn btn-success col-md-12 mt-3" type="submit">Login</button>
+                </form>
+
+            </div>
+            <div class="col-md-4"></div>
+
+        </div>
+
+        <div class="row">
+            <ul class="list-group p-4">
+                <li v-for="(lenguaje, index) in lenguajes" v-bind:key="index" class="list-group-item">
+                    <span v-text="index" class="badge bg-primary rounded-pill">
+                    </span> <span v-text="lenguaje"></span>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

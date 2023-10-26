@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Diapo 16: DOM III - Ejercicio 3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />
+        <style type="text/css">
+            main div {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+            main div div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #1a4a5e;
+                width: 302px;
+            }
+            main div img {
+                cursor: pointer;
+                width: 100px;
+                height: auto;
+            }
+            main div img.inactivo {
+                opacity: 0.5;
+                cursor: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Diapo 16: DOM III - Ejercicio 3</h1>
+        </header>
+        <main>
+            <h2>Selección</h2>
+            <p>Sin modificar el HTML, tenemos dos divs.</p>
+            <p>En el de la izquierda se tienen imágenes y el de la derecha está vacío.</p>
+            <p>Cada vez que se hace click en una imagen, debe crearse una copia en el de la derecha.</p>
+            <p>Debe cambiarse la opacidad de la original y anularse su onclick.</p>
+            <hr />
+            <div>
+                <div id="original">
+                    <img src="items/queen-01.jpg" width="100" height="100" alt="Sheer Heart Attack" />
+                    <img src="items/queen-02.jpg" width="100" height="100" alt="A Night At The Opera" />
+                    <img src="items/queen-03.jpg" width="100" height="100" alt="A Day At The Races" />
+                    <img src="items/queen-04.jpg" width="100" height="100" alt="News Of The World" />
+                    <img src="items/queen-05.jpg" width="100" height="100" alt="Jazz" />
+                    <img src="items/queen-06.jpg" width="100" height="100" alt="The Game" />
+                    <img src="items/queen-07.jpg" width="100" height="100" alt="Hot Space" />
+                    <img src="items/queen-08.jpg" width="100" height="100" alt="The Works" />
+                    <img src="items/queen-09.jpg" width="100" height="100" alt="A Kind Of Magic" />
+                    <img src="items/queen-10.jpg" width="100" height="100" alt="The Miracle" />
+                    <img src="items/queen-11.jpg" width="100" height="100" alt="Innuendo" />
+                    <img src="items/queen-12.jpg" width="100" height="100" alt="Made In Heaven" />
+                </div>
+                <div id="quitados"></div>
+            </div>
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+        <script src="js/ejercicio-3-1.js"></script>
+        <!--<script src="js/ejercicio-3-2.js"></script>-->
+    </body>
+</html>

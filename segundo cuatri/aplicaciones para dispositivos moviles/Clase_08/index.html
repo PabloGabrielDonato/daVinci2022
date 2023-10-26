@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 08 - Componetes</title>
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="bg-success">
+      <h1 class="text-center text-light">Clase 08 - Componetes</h1>
+    </header>
+    <main id="app" class="container">
+      <!-- <caja></caja>
+      <button v-on:click="nuevo" class="btn btn-success" type="button">
+        Nuevo
+      </button> -->
+
+      <h2>Productos</h2>
+      <div class="flex">
+        <card
+          v-for="(producto, index) in lista"
+          v-bind:nombre="producto.nombre"
+          v-bind:foto="producto.fotoUrl"
+          v-bind:coste="producto.precio"
+        ></card>
+      </div>
+    </main>
+    <footer class="bg-primary text-light">
+      <p>Aplicaciones para Dispositivos Móviles</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="../Clase_08/components/card.js"></script>
+    <script src="../Clase_08/app.js"></script>
+  </body>
+</html>

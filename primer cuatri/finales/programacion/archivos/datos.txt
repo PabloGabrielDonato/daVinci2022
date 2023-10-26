@@ -1,0 +1,6 @@
+ MATERIA: Programación 1
+ PROFESOR: Alejandro Potente
+ ALUMNO: Pablo Gabriel Donato
+ CUATRIMESTRE: 2do Cuatrimestre
+ COMISIÓN: AH
+ TURNO: Mañana

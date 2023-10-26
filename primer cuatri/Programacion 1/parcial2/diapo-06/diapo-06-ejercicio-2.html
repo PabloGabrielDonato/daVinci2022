@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Diapo 06: Funciones III - Ejercicio 2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />
+        <script src="js/ejercicio-2-1.js"></script>
+        <script src="js/ejercicio-2-2.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Diapo 06: Funciones III - Ejercicio 2</h1>
+        </header>
+        <main>
+            <p>Tenemos una especie de "calculadora", con 7 botones:</p>
+            <ul>
+                <li>Tenemos 2 botones para ingresar valores numéricos.</li>
+                <li>Tenemos 4 botones para realizar una operación aritmética.</li>
+                <li>Tenemos un botón que muestra el resultado.</li>
+            </ul>
+            <p>Ya tienen una función asignada a su onclick:</p>
+            <ul>
+                <li>ObtenerNumero1</li>
+                <li>ObtenerNumero2</li>
+                <li>Operacion</li>
+                <li>Mostrar</li>
+            </ul>
+            <p>El funcionamiento debe ser el siguiente:</p>
+            <ul>
+                <li>Ingresar dos valores.</li>
+                <li>Seleccionar una operación.</li>
+                <li>Mostrar el resultado.</li>
+            </ul>
+            <p>Se debe verificar que los datos sean válidos (en caso contrario notificarlo).</p>
+            <p>Se deben utilizar variables globales.</p>
+            <p><strong>Extra:</strong> crear una función para ingresar y validar un número.</p>
+            <div>
+                <button onclick="ObtenerNumero1();">Ingresar valor 1</button>
+                <button onclick="ObtenerNumero2();">Ingresar valor 2</button>
+            </div>
+            <div>
+                <button onclick="Operacion('sumar');">+</button>
+                <button onclick="Operacion('restar');">-</button>
+                <button onclick="Operacion('multiplicar');">*</button>
+                <button onclick="Operacion('dividir');">/</button>
+            </div>
+            <button onclick="Mostrar();">Mostrar resultado</button>
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+    </body>
+</html>

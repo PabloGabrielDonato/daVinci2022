@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Programación I | Parcial 2 | APELLIDO/S</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="estilo.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Programación I | Final | Donato | Mi carrito</h1>
+    </header>
+    <main>
+        <div id="detalleCarrito">
+            <p>Carrito - Detalles:</p>
+            <p id="info-carrito" style="background: rgba(122, 50, 50, 0.308); color: rgb(0, 0, 0); list-style: none; width: 100%;padding: 10px"></p>
+
+            <button id="reset">Vaciar carrito</button>
+            <button onclick="ocultarCarrito()">Ocultar carrito</button>
+        </div>
+        <div id="minicarrito">
+            <p id="info-items"></p>
+            <p id="info-total"></p>
+            <p id="filtros">
+                Filtrar por
+                <a href="#" data-cat="1">Indumentaria</a> |
+                <a href="#" data-cat="2">Saltos</a> |
+                <a href="#" data-cat="3">Tunel de viento</a> |
+                <a href="#" data-cat="0">Limpiar</a>
+            </p>
+            <button onclick="showItem()">Ver carrito</button>
+            <button onclick="finCompra()">Finalizar compra</button>
+        </div>
+
+        <h2>Productos</h2>
+        <div class="verBanner" id="banner">
+            <p></p>
+        </div>
+
+        <div class="lista" id="productos-list"></div>
+
+        </div>
+
+        <div class="checkout" id="checkout">
+            <p>ChecKOut - Finalizando Compra:</p>
+            <p id="fin-carrito" style="color: rgb(0, 0, 0); list-style: none; width: 100%;">
+                -
+            </p>
+            <div class="flexform">
+                <form action="">
+                    <h2>Formulario de Pago</h2>
+                    <div class="datosForulario">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="number" placeholder="DNI" required>
+                        <input type="text" placeholder="Domicilio de entrega" required>
+                        <select name="horarios" class="horarios" id="horarioEntrga" required>
+                            <option value="vacio">Seleccione Hora de entrega</option>
+                            <option value="1">de 8:00 a 12:00</option>
+                            <option value="2">de 12:00 a 17:00</option>
+                            <option value="3">de 17:00 a 21:00</option>
+                        </select>
+                        <input type="number" placeholder="Número de tarjeta" required>
+                        <select name="targetas" class="targetas" id="medioPagos" required>
+                            <option value="vacio">Seleccione medio de pago</option>
+                            <option value="visa">Visa</option>
+                            <option value="Mastercad">Mastercad</option>
+                            <option value="Naranja">Naranja</option>
+                            <option value="American">American Express</option>
+                        </select>
+                        <input type="number" placeholder="Ingresar teléfono" required>
+                        <select name="cuotas" class="cuotas" id="cantidadcuotas" required>
+                            <option value="vacio">Elija las cuotas</option>
+                            <option value="1">1</option>
+                            <option value="3">3</option>
+                            <option value="6">6</option>
+                            <option value="12">12</option>
+                        </select> <br>
+                        <input type="text" placeholder="E-Mail" required> <br>
+                        <label class="calendario"> Fecha de entrega <input type="date" required/> </label>
+                    </div>
+                </form>
+            </div>
+            <button onclick="cancelar()">Cancelar</button>
+            <button onclick="confirmar()">Confirmar</button>
+        </div>
+        <div id="confirmacion">
+            <p>Su compra fue confirmada</p>
+            <button onclick="cancelar()">Aceptar</button>
+
+        </div>
+    </main>
+    <footer>
+        <ul>
+            <li>Profesor Alejandro Potente</li>
+            <li>
+                <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+            </li>
+            <li>Programación 1</li>
+        </ul>
+    </footer>
+
+    <script src="final.js"></script>
+</body>
+
+</html>

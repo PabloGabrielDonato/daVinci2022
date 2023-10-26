@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Diapo 14: DOM I - Ejemplo 1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />        
+    </head>
+    <body>
+        <header>
+            <h1>Diapo 14: DOM I - Ejemplo 1</h1>
+        </header>
+        <main>
+            <h2>Document Object Musicians </h2>
+            <p id="cantidad"></p>
+            <div>
+                <img id="imagen" src="items/charly-garcia.jpg" alt="Carlos Alberto García Moreno tocando el piano" title="Te cuento lo que hace Charly" />
+                <p id="texto">
+                    <em>Charly</em> García tocando el piano
+                </p>
+                <p>Bandas</p>
+                <input type="button" id="boton" value="Mostrar Bandas">
+                <ul id="bandas">
+                    <li class="impar" data-lanzamiento="1980">Sui Géneris</li>
+                    <li class="par" data-lanzamiento="1970">PorSuiGieco</li>
+                    <li class="impar" data-lanzamiento="1990">La Máquina de Hacer Pájaros</li>
+                    <li class="par" data-lanzamiento="1920">Serú Girán</li>
+                </ul>
+            </div>
+            <hr />
+            <p>Abrir consola para:</p>
+            <ul>
+                <li>Mostrar la imagen #imagen, el alt, el src y el title</li>
+                <li>Mostrar el párrafo #texto y su contenido.</li>
+                <li>obtener los li del ul #bandas y recorrerlos para mostrar su contenido</li>
+            </ul>
+            <p>Modificar el src y el alt de la imagen #imagen.</p>
+            <p>Modificar el texto del párrafo #texto.</p>
+            <p>Asigar el color blue a los li pares y red a los impares.</p>
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+        <!--JS justo antes del cierre de la etiqueta body-->
+        <script src="js/ejemplo-1-1.js"></script>
+    </body>
+</html>

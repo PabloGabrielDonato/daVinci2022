@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Diapo 16: DOM III - Juego "Memotest"</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />
+        <style type="text/css">
+            main div {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+            main div div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #1a4a5e;
+                width: 302px;
+            }
+            main div img {
+                cursor: pointer;
+                width: 150px;
+                height: auto;
+                opacity: 0;
+            }
+            .inicial {
+                width: 150px;
+                height: auto;
+                border: 1px solid #000000;
+            }
+            main div img.inactivo {
+                opacity: 0.5;
+                cursor: none;
+            }
+            #puntos {
+                font-size: 50px;
+                font-weight: bold;
+                color: #000000;
+                text-align: center;
+                display: block;
+                width: 100%;
+                margin: 20px;
+            }
+            #original {
+                display: none;
+            }
+            #juego {
+                width:902px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Diapo 16: DOM III - Juego "Memotest" </h1>
+        </header>
+        <main>
+            <h2>Memotest</h2>
+            <p>Tengo un div "original" oculto, donde tengo 12 imagenes diferentes para armar mi tablero de juego.</p>
+            <p>Tengo un div "juego" donde se van a cargar 24 imagenes (2 por cada imagen que tengo en el div "original"), estas imagenes necesito los pares se carguen en posiciones aleatorias.</p>
+            <p>El usuario hace click en una imagen, esta se visualiza, hace click en una segunda imagen, esta también se visualiza, si son iguales quedan visibles y suma 5 puntos, sino, se ocultan nuevamente y no suma ningun punto.
+            <hr />
+            <div id="puntos">0 puntos</div>
+            <p id="mensaje"></p>
+            <p id="reloj">0</p>    
+            <div>
+                <div id="original">
+                    <img src="items/queen-01.jpg" width="100" height="100" alt="Sheer Heart Attack" />
+                    <img src="items/queen-02.jpg" width="100" height="100" alt="A Night At The Opera" />
+                    <img src="items/queen-03.jpg" width="100" height="100" alt="A Day At The Races" />
+                    <img src="items/queen-04.jpg" width="100" height="100" alt="News Of The World" />
+                    <img src="items/queen-05.jpg" width="100" height="100" alt="Jazz" />
+                    <img src="items/queen-06.jpg" width="100" height="100" alt="The Game" />
+                    <img src="items/queen-07.jpg" width="100" height="100" alt="Hot Space" />
+                    <img src="items/queen-08.jpg" width="100" height="100" alt="The Works" />
+                    <img src="items/queen-09.jpg" width="100" height="100" alt="A Kind Of Magic" />
+                    <img src="items/queen-10.jpg" width="100" height="100" alt="The Miracle" />
+                    <img src="items/queen-11.jpg" width="100" height="100" alt="Innuendo" />
+                    <img src="items/queen-12.jpg" width="100" height="100" alt="Made In Heaven" />
+                </div>
+                <div id="juego"></div>
+            </div>
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+        <script src="js/juego-3-1.js"></script>
+    </body>
+</html>

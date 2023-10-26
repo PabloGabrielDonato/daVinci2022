@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 03 - Directivas</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <nav id="app-nav">
+        <ul>
+            <li v-for="menu in menus"  >
+                <a v-bind:href="menu.url" v-text="menu.nombre"></a>
+            </li>
+
+        </ul>
+        <h2 v-text="nombre"></h2>
+        <button 
+            v-on:click="login(1)" 
+            v-if="!logueado"
+            type="button">Login Usuario</button>
+        <button v-on:click="login(2)" v-if="!logueado" type="button">Login Admin</button>
+        <button 
+            v-on:click="salir" 
+            v-if="logueado"
+            type="button">Salir</button>
+    </nav>
+    <hr>
+    <main id="app">
+        <h1 v-if="visible" >{{ titulo }}</h1>
+        <button v-on:click="mostrarOcultar" type="button">Mostrar / Ocultar</button>
+    </main>
+    <!-- Para esta clase creamos dos app de vue independientes -->
+    <script src="app-nav.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

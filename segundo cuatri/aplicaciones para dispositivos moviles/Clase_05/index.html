@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 05 - Computadas y localStorage</title>
+    <link rel="stylesheet" href="../libs/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="text-info text-center"> Clase 05 - Propiedades Computadas y localStorage</h1>
+    </header>
+    <main id="app">
+        <div class="row">
+            
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <h2 class="text-success text-center">Computadas</h2>
+                <form v-on:submit.prevent="addTask" action="" class="card p-3">
+                    <input v-model="taskName" type="text" class="form-control">
+                    <button  class="btn btn-success col-md-12 mt-3" type="submit">Agregar</button>
+                </form>
+                <p>Cantidad de tarea <span v-text="tasksCount"></span> </p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="text-success text-center">Tareas</h2>
+                <button v-on:click="loadTask" type="button" class="btn btn-info">Cargar</button>
+                <div class="card">
+                    <ul class="list-group p-4">
+                        <li v-for="(task, index) in tasks"
+                            v-bind:class="{'list-group-item-dark': task.complet}"
+                            class="list-group-item d-flex justify-content-between align-items-start">
+                            <span v-text="task.name"></span>
+                            <span> 
+                                <span v-on:click="taskComplet(index)" class="badge bg-success rounded-pill"> ✔ </span>
+                                <span v-on:click="taskDelete(index)" class="badge bg-danger rounded-pill"> ❌</span>
+                            </span>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

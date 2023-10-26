@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Diapo 17: DOM IV - Ejercicio 1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />
+        <style type="text/css">
+            #chat {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+                width: 100%;
+            }
+            #chat div {
+                margin: 0.5em 0;
+                width: 100%;
+                background: #7fa1ae;
+            }
+            #chat div p {
+                margin: 0.25em;
+                min-height: 55px;
+                padding: 0.5em;
+                background: #fff;
+                font-size: 1.4em;
+                line-height: 1.5;
+                font-weight: 400;
+                text-align: left;
+                color: #1a4a5e;
+                background-repeat: no-repeat;
+                background-position: right;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Diapo 17: DOM IV - Ejercicio 1</h1>
+        </header>
+        <main>
+            <h2>Color Picker</h2>
+            <p>Al presionar el botón, levantar el contenido del textarea y del radio seleccionado.</p>
+            <p>Generar adentro del div#mensajes una etiqueta párrafo cuyo texto será el contenido del textarea y tendrá como background-image el estado seleccionado</p>
+            <p>Al hacer doble click (evento ondblclick) sobre un párrafo, debe eliminarse del div #mensajes</p>
+            <hr />
+            <div id="chat">
+                <form>
+                    <fieldset>
+                        <legend>Estado de</legend>
+                        <label><input type="radio" name="estado" value="felicidad" /> felicidad</label>
+                        <label><input type="radio" name="estado" value="tristeza" /> tristeza</label>
+                        <label><input type="radio" name="estado" value="enojo" /> enojo</label>
+                        <label><input type="radio" name="estado" value="acongojamiento" /> acongojamiento</label>
+                        <label><input type="radio" name="estado" value="maldad" /> maldad</label>
+                    </fieldset>
+                    <label id="mensaje"></label>
+                    <textarea></textarea>
+                    <input type="button" value="Enviar" />
+                </form>
+                <div>
+                    <p>Aquí se mostrarán tus mensajes (si, hay que borrar este párrafo).</p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+        <script src="js/ejercicio-1-1.js"></script>
+    </body>
+</html>

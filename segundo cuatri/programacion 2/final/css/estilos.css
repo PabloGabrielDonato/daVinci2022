@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+/* VISTA MOBILE */
+
+/* NAVEGACION */
+
+nav {
+  background: rgb(255, 255, 255);
+  padding: 1em 0;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0.8em 0;
+  width: 80%;
+}
+
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  background: rgb(31, 112, 112);
+  padding: 1em;
+  color: rgb(255, 255, 255);
+}
+
+/* HEADER */
+header {
+  margin-top: 5%;
+}
+header p {
+  text-align: center;
+  font-size: 1.5em;
+}
+header span {
+  color: rgb(67, 172, 85);
+  font-size: 1.4em;
+}
+
+h1 {
+  text-align: center;
+  color: rgb(114, 217, 131);
+  font-family: "Domine", serif;
+}
+h2 {
+  text-align: center;
+  padding: 2%;
+  font-family: "Domine", serif;
+}
+.parrafoshome p {
+  text-align: center;
+}
+/* OJETIVOS */
+
+.flex_objetivos {
+  display: flex;
+  flex-direction: column;
+}
+
+.cont_obj {
+  width: 60%;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 2%;
+  margin: 1%;
+  box-shadow: 3px 3px 10px rgb(160, 182, 157);
+  margin-left: auto;
+  margin-right: auto;
+}
+.cont_obj h3 {
+  text-align: center;
+  color: rgb(104, 201, 201);
+}
+.cont_obj img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* REDES */
+.redes {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  background-color: rgb(196, 247, 208);
+  list-style: none;
+  text-decoration: none;
+  border-radius: 10px;
+  margin-top: 4%;
+}
+.redes li {
+  padding: 3%;
+  text-align: center;
+  float: left;
+}
+
+/* FORMULARIO */
+.form-floating,
+.btn-success {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+footer {
+  background-color: rgb(104, 201, 201);
+  margin-top: 10%;
+}
+.flex-productos {
+  justify-content: center;
+}
+
+.contenedor-productos {
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 2%;
+  margin: 1%;
+  box-shadow: 3px 3px 10px rgb(160, 182, 157);
+}
+.contenedor-productos img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer p {
+  text-align: center;
+  margin: 0;
+  color: rgb(0, 0, 0);
+  font-size: 1.5em;
+}
+.form-login form {
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-login input {
+  margin: 0.5%;
+  height: 30px;
+  border-radius: 5px;
+}
+
+/* TABLA */
+.table td,
+th {
+  font-size: 15px;
+}
+
+.table th {
+  text-align: center !important;
+}
+.table tr {
+  background-color: rgb(186, 181, 181);
+}
+/* VISTA TABLET */
+@media screen and (min-width: 600px) {
+  .flex-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .contenedor-productos {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* NAVEGACION */
+
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav ul li {
+    width: 48%;
+    margin: 1%;
+  }
+  .cont_obj {
+    width: 40%;
+  }
+  .grupo1,
+  .grupo2 {
+    display: flex;
+  }
+}
+
+/* VISTA ESCRITORIO */
+@media screen and (min-width: 990px) {
+  /* NAVEGACION */
+
+  nav {
+    flex: 1;
+    background: none;
+    padding-right: 1.2rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  nav ul {
+    justify-content: center;
+    background: rgb(31, 112, 112);
+    border-radius: 10px;
+  }
+  nav ul li {
+    width: 100px;
+    margin: 5px;
+  }
+  nav ul li a {
+    padding: 10px;
+    background: none;
+    color: white;
+  }
+  nav ul li a:hover {
+    background: rgb(141, 184, 80);
+    color: rgb(62, 71, 39);
+    border-radius: 50%;
+    transition: 0.5s;
+  }
+  .parrafoshome {
+    display: flex;
+  }
+  .parrafoshome p {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+  .pagprinc p {
+    padding: 2%;
+  }
+  .flex_objetivos {
+    flex-direction: row;
+    margin: 2%;
+    gap: 1%;
+  }
+
+  .flex-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .contenedor-productos {
+    width: 20%;
+  }
+}

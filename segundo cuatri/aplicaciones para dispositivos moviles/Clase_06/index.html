@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 06 - Renderizado de lista</title>
+    <link rel="stylesheet" href="../libs/bootstrap.min.css">
+</head>
+<body>
+    <header class="d-flex justify-content-center">
+        <h1>Renderizado de Listas</h1>
+
+    </header>
+    <main id="app" class="container">
+        <input v-model="nombre" type="text">
+        <h2 v-text="nombre"></h2>
+        <button v-on:click="accion">accion</button>
+    </main>
+
+    <script src="../libs/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

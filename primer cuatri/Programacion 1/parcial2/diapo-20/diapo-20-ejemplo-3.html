@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Diapo 20: CSS, offsets, scroll, eventos, teclado - Ejemplo 3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <link rel="shortcut icon" href="../res/favicon.ico" />
+        <link rel="stylesheet" href="../res/css/styles.css" />
+        <style type="text/css">
+            body {
+                background: #d4eaf3;
+                transition: all 0.5s ease;
+            }
+            header {
+                background: #d4eaf3;
+            }
+            h1 {
+                color: #1a4a5e;
+            }
+            main {
+                background: transparent;
+                padding-bottom: 50em;
+            }
+            h2 {
+                font-size: 3.2em;
+                line-height: 1.5;
+                font-weight: 400;
+                text-align: left;
+                color: #1a4a5e;
+            }
+            div {
+                margin-bottom: 4em;
+                border-radius: 1em;
+                padding: 2em 4em;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            #top,
+            #up,
+            #down {
+                position: fixed;
+                top: 25%;
+                right: 0.5em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 1.2em;
+                padding: 0.6em;
+                background: rgba(0, 0, 0, 0.75);
+                text-decoration: none;
+                font-size: 1.2em;
+                color: #ccc;
+            }
+            #up {
+                top: 50%;
+            }
+            #down {
+                top: 75%;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Diapo 20: CSS, offsets, scroll, eventos, teclado - Ejemplo 3</h1>
+        </header>
+        <main>
+            <div>
+                <h2 style="color: #1a4a5e">Consigna</h2>
+                <ol>
+                    <li>Buscar todos las div y los links #up, #down y #top.</li>
+                    <li>Al hacer scroll en el body, detectar la posición del scroll (mostrarla en consola).</li>
+                    <li>Recorrer los div para detectar sus límites y en base a ellos, ir cambiando el color de fondo según el color del h2 del div por el cual está pasando el scroll. Comenzamos con el color #D4EAF3.</li>
+                    <li>Al hacer click en el link #top, evitar que vaya directamente al anchor (return false) y animar el scroll para que suba 15px cada 10ms.</li>
+                    <li>Al hacer click en el link #up, evitar que vaya directamente al anchor (return false) y que suba 50px.</li>
+                    <li>Al hacer click en el link #down, evitar que vaya directamente al anchor (return false) y que baje 50px.</li>
+                </ol>
+                <a href="#" id="top">INICIO</a>
+                <a href="#" id="up">PARA ARRIBA</a>
+                <a href="#" id="down">PARA ABAJO</a>
+            </div>
+            <div>
+                <h2 style="color: red">Rojo</h2>
+                <p>Los clientes que prefieren el rojo son por lo general extrovertidos y dinámicos. El color rojo tiene relación con aromas atractivos; un rojo escarlata denota preferencias sexuales de minorías y fuerte grado de dignidad y orgullo.</p>
+            </div>
+            <div>
+                <h2 style="color: yellow">Amarillo</h2>
+                <p>Los clientes que escogen el amarillo tienen tendencia a lo intelectual. También se reconoce que este color irradia calor e inspiración. Se recomienda para anunciar "novedades u ofertas".</p>
+            </div>
+            <div>
+                <h2 style="color: green">Verde</h2>
+                <p>Los clientes que seleccionan el color verde-azulado son analíticos y de carácter tranquilo.</p>
+                <p>El consumidor que da prioridad al color verde es utilitario, amante de lo fresco y natural.</p>
+            </div>
+            <div>
+                <h2 style="color: blue">Azul</h2>
+                <p>La gente que prefiere el azul en todas sus tonalidades, tiene buen control de sus emociones. Es, además, el color favorito de los niños y jóvenes. Refleja tranquilidad, no violencia y es muy recomendable para productos del hogar que tengan bastante duración. Conviene aplicarlo en pintura de paredes, ropa de cama, cortinas, etc. Algunos dicen que el éxito del portal de Internet Yahoo! se debe a la utilización del color azul.</p>
+            </div>
+            <div>
+                <h2 style="color: orange">Naranja</h2>
+                <p>La gente que compra productos de color naranja es por lo general jovial. Es el color de la acción, la efusividad y la generosidad.</p>
+            </div>
+            <div>
+                <h2 style="color: violet">Violeta</h2>
+                <p>Las personas con tendencia al color morado-violeta tienen gustos artísticos, místicos y religiosos. Este color tiene impacto en la industria de perfumería para mujeres. Se considera el color más sexual de todos.</p>
+            </div>
+            <div>
+                <h2 style="color: brown">Marrón</h2>
+                <p>La mayoría de clientes que son ordenados y disciplinados, buscan el color marrón o café. Se relaciona además a este color con una vida estable y saludable.</p>
+            </div>
+            <div>
+                <h2 style="color: black">Negro</h2>
+                <p>Los clientes que prefieren el color negro son conservadores, les gusta la elegancia y la discreción.</p>
+            </div>
+            <div>
+                <h2 style="color: white">Blanco</h2>
+                <p>La gente que escoge el color blanco es refinada y con tendencia a ser cerrada en sus ideas.</p>
+            </div>
+            <div>
+                <h2 style="color: gray">Gris</h2>
+                <p>Los clientes que escogen el gris, reflejan conformismo y pasividad.</p>
+            </div>
+            <div>
+                <h2 style="color: pink">Rosado</h2>
+                <p>El cliente que escoge el rosa es suave, femenino, sofisticado, educado.</p>
+            </div>
+            <div>
+                <h2 style="color: gold">Dorado</h2>
+                <p>Los compradores de pan, cereales, miel , se detienen más ante el color dorado que resalta en su envase.</p>
+            </div>
+            <div>
+                <h2 style="color: turquoise">Turquesa</h2>
+                <p>Las mujeres han dado mucha fuerza últimamente al color turquesa, sobre todo si éste está combinado con tonos rosa y blancos. Este color se relaciona con productos de belleza y feminidad, y tiene mucho que ver con aromas de frescura y limpieza.</p>
+            </div>
+        </main>
+        <footer>
+            <ul>
+                <li>Profesor Lic. Alejandro Potente</li>
+                <li>
+                    <a href="mailto:alejandro.potente@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">alejandro.potente@davinci.edu.ar</a>
+                </li>
+                <li>Programación 1</li>
+            </ul>
+        </footer>
+        <script src="js/ejemplo-3-1.js"></script>
+    </body>
+</html>

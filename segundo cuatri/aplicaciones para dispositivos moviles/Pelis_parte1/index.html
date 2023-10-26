@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio - Web de Peliculas</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Web de Peliculas</h1>
+    </header>
+    <main id="app">
+      <div v-for="(pelicula,index) in lista" class="card">
+        <div class="row">
+          <h3>Favoritos</h3>
+          <i
+            v-on:click="darLike(pelicula)"
+            v-bind:class="{'like': pelicula.like}"
+            class="fa-solid fa-lg fa-heart"
+          ></i>
+        </div>
+        <h2 v-text="pelicula.nombre"></h2>
+        <img v-bind:src="pelicula.fotoUrl" v-bind:alt="pelicula.nombre" />
+        <p>
+          ${{pelicula.estreno}} | <strong v-text="pelicula.director"></strong>
+        </p>
+      </div>
+    </main>
+    <footer>
+      <p>ADM | Web de Peliculas</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="script.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
